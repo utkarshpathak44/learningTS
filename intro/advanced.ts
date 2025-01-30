@@ -10,25 +10,25 @@ const myFuntion = function (text: string): void {
 
 //whenever we create a function , using the function keyword, it creates a new scope
 
-setTimeout(function () {
-  console.log(this);
-}, 1000);
-//this returns window object
+// setTimeout(function () {
+//   console.log(this);
+// }, 1000);
+// //this returns window object
 
-//if this function is in a class like
-class c1 {
-  f1() {
-    setTimeout(function () {
-      console.log(this);
-    }, 1000);
-  }
-}
-//this returns undefined
+// //if this function is in a class like
+// class c1 {
+//   f1() {
+//     setTimeout(function () {
+//       console.log(this);
+//     }, 1000);
+//   }
+// }
+// //this returns undefined
 
-setTimeout(() => {
-  console.log(this);
-}, 1000);
-//returns a window object
+// setTimeout(() => {
+//   console.log(this);
+// }, 1000);
+// //returns a window object
 
 class c2 {
   f1() {
@@ -232,4 +232,74 @@ function calculateArea(shape: Shape): number {
     }
 }
 
+//multiple interfaces with the same name are merged together
 
+//difference b/w interface and an alias
+
+//differences between interfaces and classes
+
+
+//function generics
+
+class Food {
+    constructor(public name: string, public calories: number) {}
+}
+
+class FoodList<T> {
+    private items: T[] = [];
+
+    addItem(food: T): void {
+        this.items.push(food);
+    }
+
+    getItems(): T[] {
+        return this.items;
+    }
+
+    getItemAt(index: number): T | undefined {
+        return this.items[index];
+    }
+}
+
+const foodList = new FoodList<Food>();
+
+const apple = new Food("Apple", 95);
+const banana = new Food("Banana", 105);
+
+foodList.addItem(apple);
+foodList.addItem(banana); 
+
+//overloading
+function reverseAnything<T>(anything: string | T[]): string | T[] {
+    if (typeof anything === 'string') {
+        return anything.split("").reverse().join("");
+    }
+
+    if (Array.isArray(anything)) {
+        return anything.reverse();
+    }
+
+    throw new Error("Input must be a string or an array");
+}
+
+//numeric enums
+enum sizes{
+    small,
+    medium,
+    large
+}
+
+let selected:sizes=sizes.large
+
+//reverse
+enum Status {
+    Pending = 0,
+    Approved = 1
+}
+
+
+
+console.log(Status.Pending);    // Output: 0
+console.log(Status[0]);         // Output: "Pending"
+
+// we dont get reverse mapping if we use string enums

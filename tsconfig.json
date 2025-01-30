@@ -1,10 +1,21 @@
 {
+  // "extends":"../tsconfig.json",
   "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true
+    "outDir": "./die",                 // Output directory for compiled JavaScript files
+    "declaration": true,              // Generate declaration (.d.ts) files
+    "declarationDir": "./die",        // Output directory for declaration files
+    "rootDir": "./intro",              // Specify the root directory for source files
+    "strict": true,                   // Enable strict type checking
+    "module": "commonjs",             // Specify the module system
+    "target": "ES6",                  // Specify the ECMAScript target version
+    "esModuleInterop": true ,          // Enable compatibility with CommonJS modules
+    "noImplicitAny": false,
+    // "outFile": "./death/bundle"      //set module to amd or system, emits a single file
+    "noEmitOnError": true,
+    "sourceMap": false,
+    // "mapRoot": "./mapshehe"
+    "inlineSourceMap": false,
   },
-  "include": ["src/**/*"]
+  "include": ["./intro/*.ts"],         // Include all TypeScript files in the `main` folder
+  "exclude": ["node_modules"]         // Exclude unnecessary files
 }

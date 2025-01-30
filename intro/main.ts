@@ -209,34 +209,34 @@ interface z {
   [key: number]: string;
 }
 
-let k = {
+let k2 = {
   name: "hello",
   1: "this is the index",
 } as z;
 
 // class in plain js
-function Person(name, age) {
-  this.name = name;
-  this.age = age;
-}
+// function Person(name, age) {
+//   this.name = name;
+//   this.age = age;
+// }
 
-Person.prototype.greet = function () {
-  console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
-};
+// Person.prototype.greet = function () {
+//   console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+// };
 
-Person.prototype.haveBirthday = function () {
-  this.age++;
-  console.log(`Happy Birthday! I am now ${this.age} years old.`);
-};
+// Person.prototype.haveBirthday = function () {
+//   this.age++;
+//   console.log(`Happy Birthday! I am now ${this.age} years old.`);
+// };
 
-const john = new Person("John", 30);
-const jane = new Person("Jane", 25);
+// const john = new Person("John", 30);
+// const jane = new Person("Jane", 25);
 
 // Call methods
-john.greet();
-john.haveBirthday();
+// john.greet();
+// john.haveBirthday();
 
-jane.greet();
+// jane.greet();
 
 //class in typeScript
 class pizza2 {
@@ -273,7 +273,7 @@ class Person2 {
   firstName: string;
   lastName: string;
 
-  constructor(firstName, lastName) {
+  constructor(firstName:string, lastName:string) {
     this.firstName = firstName;
     this.lastName = lastName;
   }
@@ -289,11 +289,11 @@ class Person2 {
   }
 }
 
-const person = new Person("John", "Doe");
+// const person111 = new Person("John", "Doe");
 
-console.log(person.fullName);//getter
+// console.log(person111.fullName);//getter
 
-person.fullName = "Jane Smith";//setter
+// person111.fullName = "Jane Smith";//setter
 
 
 //classes and ineritence
@@ -309,7 +309,7 @@ abstract class machine implements Generation{
   power:string
   private price: number
   protected id:number|null=null
-  currentGenerations: string[];
+  currentGenerations: string[]=["dsajd"];
   constructor(power:string, price:number){
     this.power=power;
     this.price=price
@@ -330,6 +330,6 @@ class computer extends machine{
     super(power, price)
     this.cpu=cpu
     this.gpu=gpu
-    this.tflopsMPS=this.tflopsMPS
+    this.tflopsMPS=tflopsMPS
   }
 }
